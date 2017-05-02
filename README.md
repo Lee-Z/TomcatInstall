@@ -19,7 +19,8 @@ tar zsvf jdk-7u79-linux-x64.tar.gz?AuthParam=1478670268_cfcc4cd435916f22c348a519
 ```
 mv  jdk1.7.0_79  /usr/local/
 ```
-#设置环境变量
+设置环境变量
+
 ```vim /etc/profile
 ```
 在末尾输入以下内容:
@@ -36,6 +37,7 @@ export  JAVA_HOME  JAVA_BIN JRE_HOME  PATH  CLASSPATH
 source /etc/profile
 ```
 检测是否设置正确:
+
 ```
 java -version
 ```
@@ -45,8 +47,9 @@ java version "1.7.0_79"
 Java(TM) SE Runtime Environment (build 1.7.0_79-b05)
 Java HotSpot(TM) Client VM (build 19.0-b09, mixed mode, sharing)
 ```
-#安装Tomcat
+# 安装Tomcat
 上面介绍了那么多内容，仅仅是在为安装tomcat做准备工作而已，现在才是安装tomcat.
+
 ```
 cd /usr/local/src/
 wget http://www.aminglinux.com/bbs/data/attachment/forum/apache-tomcat-7.0.14.tar.gz
@@ -75,11 +78,13 @@ chkconfig --add tomcat
 chkconfig tomcat on
 ```
 启动tomcat:
+```
 service tomcat start
-
+```
 查看是否启动成功:
+```
 ps aux |grep tomcat
-
+```
 如果有进程的话，请在浏览器中输入http://IP:8080/ 你会看到tomcat的主界面。
 配置tomcat1. 配置tomcat服务的访问端口
 tomcat默认启动的是8080，如果你想修改为80，则需要修改server.xml文件:
@@ -102,9 +107,10 @@ vim server.xml
 </Host>
 
 保存后，重启tomcat:
+```
 service tomcat stop
 service tomcat start
-
+```
 测试tomcat先创建tomcat的测试文件:
 vim /data/tomcatweb/111.jsp
 
